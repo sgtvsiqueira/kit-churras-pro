@@ -1,0 +1,20 @@
+{
+  "name": "Kit Churras Pro",
+  "short_name": "Kit Churras",
+  "description": "Sistema completo para gestão de delivery de kits de churrasco",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ea580c",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["business", "food", "productivity"],
+  "lang": "pt-BR",
+  "dir": "ltr"
+}

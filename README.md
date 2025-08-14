@@ -1,73 +1,112 @@
-# Welcome to your Lovable project
+# 🔥 Kit Churras Pro
 
-## Project info
+Sistema completo para gestão de delivery de **kits de churrasco** com foco em controle de estoque e pedidos.
 
-**URL**: https://lovable.dev/projects/b2ea7cd9-b079-4f82-9726-d2ec541f6905
+## 🎯 Funcionalidades
 
-## How can I edit this code?
+### ✅ Implementado
+- **Dashboard** com métricas em tempo real
+- **Design System** completo com tema claro/escuro
+- **Arquitetura preparada** para todas as funcionalidades
+- **Mock API** com localStorage
+- **Responsivo** mobile-first
+- **Componentes reutilizáveis**
 
-There are several ways of editing your application.
+### 🚧 Em desenvolvimento
+- **Controle de Pedidos** - CRUD completo, gestão de status, baixa automática de estoque
+- **Controle de Estoque** - Itens, movimentações, ajustes, alertas de estoque baixo
+- **Gestão de Kits** - Composição, preços, cálculo de margem
+- **Clientes** - CRUD, histórico de pedidos
+- **Configurações** - Parâmetros do sistema
 
-**Use Lovable**
+## 🛠️ Stack Tecnológica
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b2ea7cd9-b079-4f82-9726-d2ec541f6905) and start prompting.
+- **React** + TypeScript
+- **Vite** (build tool)
+- **Tailwind CSS** (estilização)
+- **shadcn/ui** (componentes)
+- **Zustand** (estado global)
+- **React Router** (roteamento)
+- **Lucide React** (ícones)
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Como executar
 
-**Use your preferred IDE**
+```bash
+# Instalar dependências
+npm install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Executar em desenvolvimento
 npm run dev
+
+# Build para produção
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+## 📁 Estrutura do Projeto
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+├── components/           # Componentes reutilizáveis
+│   ├── ui/              # Componentes base (shadcn/ui)
+│   ├── layout/          # Layout da aplicação
+│   └── dashboard/       # Componentes específicos do dashboard
+├── domain/              # Tipos e definições do domínio
+├── pages/               # Páginas da aplicação
+├── services/            # Camada de serviços (API mock)
+├── stores/              # Estado global (Zustand)
+├── utils/               # Utilitários e formatters
+└── assets/              # Imagens e recursos estáticos
+```
 
-**Use GitHub Codespaces**
+## 🎨 Design System
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+O projeto utiliza um design system completo baseado em:
+- **Paleta de cores** inspirada em churrasco (laranja/vermelho)
+- **Tokens semânticos** para consistência
+- **Gradientes e sombras** personalizados
+- **Tema claro/escuro** com persistência
+- **Componentes customizados** do shadcn/ui
 
-## What technologies are used for this project?
+## 🔌 Integração com API
 
-This project is built with:
+O sistema utiliza uma camada de abstração em `/src/services/api.ts` que atualmente simula uma API com localStorage. Para integrar com backend real:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. **Configure a URL da API**:
+```env
+VITE_API_BASE_URL=https://sua-api.com/api
+```
 
-## How can I deploy this project?
+2. **Substitua as funções mock** por chamadas HTTP reais:
+```typescript
+// Exemplo de migração
+async function listPedidos(): Promise<Pedido[]> {
+  const response = await fetch(`${API_BASE_URL}/pedidos`);
+  return response.json();
+}
+```
 
-Simply open [Lovable](https://lovable.dev/projects/b2ea7cd9-b079-4f82-9726-d2ec541f6905) and click on Share -> Publish.
+## 🎯 Regras de Negócio
 
-## Can I connect a custom domain to my Lovable project?
+- **Baixa automática de estoque** ao mudar status para "EM_PREPARO"
+- **Estorno automático** ao cancelar pedidos em preparo
+- **Alertas de estoque baixo** no dashboard
+- **Validação de disponibilidade** antes de finalizar pedidos
+- **Cálculo automático** de custos e margens dos kits
 
-Yes, you can!
+## 📱 PWA Ready
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+O projeto está preparado para ser uma Progressive Web App com:
+- Service Worker configurado
+- Manifest para instalação
+- Otimização para dispositivos móveis
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🌐 Deploy
+
+Para deploy em produção:
+
+1. **Via Lovable**: Clique em "Share → Publish"
+2. **Manual**: Execute `npm run build` e hospede a pasta `dist`
+
+## 📞 Suporte
+
+Para dúvidas ou sugestões sobre o projeto, utilize os recursos do Lovable ou contribua diretamente no código.
