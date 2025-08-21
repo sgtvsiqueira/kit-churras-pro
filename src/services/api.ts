@@ -55,65 +55,76 @@ const generateCode = (prefix: string) => {
 const initializeMockData = () => {
   if (!localStorage.getItem('kit-churras-itens')) {
     const itensMock: ItemEstoque[] = [
-      {
-        id: generateId(),
-        nome: 'Picanha Premium 1kg',
-        sku: 'CAR-PIC-001',
-        unidade: 'kg',
-        custoUnitario: 45.00,
-        estoqueAtual: 12,
-        estoqueMinimo: 5,
-        categoria: 'Carnes',
-        ativo: true
-      },
-      {
-        id: generateId(),
-        nome: 'Linguiça Toscana 500g',
-        sku: 'CAR-LIN-001',
-        unidade: 'kg',
-        custoUnitario: 18.00,
-        estoqueAtual: 8,
-        estoqueMinimo: 10,
-        categoria: 'Carnes',
-        ativo: true
-      },
-      {
-        id: generateId(),
-        nome: 'Carvão Vegetal 3kg',
-        sku: 'CAR-CAR-001',
-        unidade: 'pct',
-        custoUnitario: 12.50,
-        estoqueAtual: 15,
-        estoqueMinimo: 8,
-        categoria: 'Carvão',
-        ativo: true
-      },
-      {
-        id: generateId(),
-        nome: 'Refrigerante Lata 350ml',
-        sku: 'BEB-REF-001',
-        unidade: 'un',
-        custoUnitario: 2.50,
-        estoqueAtual: 24,
-        estoqueMinimo: 20,
-        categoria: 'Bebidas',
-        ativo: true
-      }
+      // Carnes Base dos Kits
+      { id: generateId(), nome: 'Contra Filé Grill', sku: 'CAR-CF-001', unidade: 'kg', custoUnitario: 45.00, estoqueAtual: 50, estoqueMinimo: 10, categoria: 'Carnes', ativo: true },
+      { id: generateId(), nome: 'Drumet na Mostarda', sku: 'CAR-DRU-001', unidade: 'kg', custoUnitario: 15.00, estoqueAtual: 40, estoqueMinimo: 10, categoria: 'Carnes', ativo: true },
+      { id: generateId(), nome: 'Linguiça Toscana', sku: 'CAR-LIN-001', unidade: 'kg', custoUnitario: 15.00, estoqueAtual: 30, estoqueMinimo: 8, categoria: 'Carnes', ativo: true },
+      { id: generateId(), nome: 'Picanha Suína', sku: 'CAR-PIC-SUÍ-001', unidade: 'pct', custoUnitario: 18.00, estoqueAtual: 25, estoqueMinimo: 5, categoria: 'Carnes', ativo: true },
+      
+      // Acompanhamentos Base
+      { id: generateId(), nome: 'Pão de Alho', sku: 'ACOM-PAO-001', unidade: 'pct', custoUnitario: 8.00, estoqueAtual: 50, estoqueMinimo: 10, categoria: 'Acompanhamentos', ativo: true },
+      { id: generateId(), nome: 'Sal Grosso', sku: 'ACOM-SAL-001', unidade: 'pct', custoUnitario: 3.00, estoqueAtual: 100, estoqueMinimo: 20, categoria: 'Acompanhamentos', ativo: true },
+      { id: generateId(), nome: 'Farofa', sku: 'ACOM-FAR-001', unidade: 'pct', custoUnitario: 5.00, estoqueAtual: 50, estoqueMinimo: 10, categoria: 'Acompanhamentos', ativo: true },
+      { id: generateId(), nome: 'Carvão', sku: 'ACOM-CAR-001', unidade: 'pct', custoUnitario: 12.00, estoqueAtual: 40, estoqueMinimo: 10, categoria: 'Acompanhamentos', ativo: true },
+      { id: generateId(), nome: 'Acendedor', sku: 'ACOM-ACE-001', unidade: 'pct', custoUnitario: 4.00, estoqueAtual: 60, estoqueMinimo: 15, categoria: 'Acompanhamentos', ativo: true },
+      
+      // Itens Extras/Trocas
+      { id: generateId(), nome: 'Frango', sku: 'CAR-FRA-001', unidade: 'kg', custoUnitario: 15.00, estoqueAtual: 30, estoqueMinimo: 8, categoria: 'Carnes Extras', ativo: true },
+      { id: generateId(), nome: 'Queijo Coalho', sku: 'CAR-QUE-001', unidade: 'kg', custoUnitario: 20.00, estoqueAtual: 15, estoqueMinimo: 5, categoria: 'Carnes Extras', ativo: true },
+      
+      // Cortes Especiais
+      { id: generateId(), nome: 'Picanha Argentina', sku: 'ESP-PIC-ARG-001', unidade: 'kg', custoUnitario: 90.00, estoqueAtual: 10, estoqueMinimo: 3, categoria: 'Cortes Especiais', ativo: true },
+      { id: generateId(), nome: 'Picanha Angus', sku: 'ESP-PIC-ANG-001', unidade: 'kg', custoUnitario: 90.00, estoqueAtual: 8, estoqueMinimo: 2, categoria: 'Cortes Especiais', ativo: true },
+      { id: generateId(), nome: 'Bife de Chorizo', sku: 'ESP-BIF-CHO-001', unidade: 'kg', custoUnitario: 58.00, estoqueAtual: 12, estoqueMinimo: 3, categoria: 'Cortes Especiais', ativo: true },
+      { id: generateId(), nome: 'Picanha do Chefe', sku: 'ESP-PIC-CHE-001', unidade: 'kg', custoUnitario: 78.00, estoqueAtual: 6, estoqueMinimo: 2, categoria: 'Cortes Especiais', ativo: true },
+      { id: generateId(), nome: 'Picanha Maturata', sku: 'ESP-PIC-MAT-001', unidade: 'kg', custoUnitario: 78.00, estoqueAtual: 5, estoqueMinimo: 2, categoria: 'Cortes Especiais', ativo: true },
+      { id: generateId(), nome: 'Picanha Pul Premium', sku: 'ESP-PIC-PUL-001', unidade: 'kg', custoUnitario: 85.00, estoqueAtual: 4, estoqueMinimo: 2, categoria: 'Cortes Especiais', ativo: true },
+      { id: generateId(), nome: 'Bananinha', sku: 'ESP-BAN-001', unidade: 'kg', custoUnitario: 50.00, estoqueAtual: 8, estoqueMinimo: 3, categoria: 'Cortes Especiais', ativo: true },
+      { id: generateId(), nome: 'Fraldinha', sku: 'ESP-FRA-001', unidade: 'kg', custoUnitario: 40.00, estoqueAtual: 10, estoqueMinimo: 3, categoria: 'Cortes Especiais', ativo: true },
+      { id: generateId(), nome: 'Linguiça de Queijo', sku: 'ESP-LIN-QUE-001', unidade: 'pct', custoUnitario: 22.00, estoqueAtual: 15, estoqueMinimo: 5, categoria: 'Cortes Especiais', ativo: true },
+      { id: generateId(), nome: 'Linguiça de Cerveja', sku: 'ESP-LIN-CER-001', unidade: 'pct', custoUnitario: 15.00, estoqueAtual: 20, estoqueMinimo: 5, categoria: 'Cortes Especiais', ativo: true },
+      { id: generateId(), nome: 'Cupim', sku: 'ESP-CUP-001', unidade: 'kg', custoUnitario: 23.00, estoqueAtual: 12, estoqueMinimo: 3, categoria: 'Cortes Especiais', ativo: true },
+      { id: generateId(), nome: 'Costa Suína', sku: 'ESP-COS-001', unidade: 'kg', custoUnitario: 35.00, estoqueAtual: 8, estoqueMinimo: 3, categoria: 'Cortes Especiais', ativo: true },
+      { id: generateId(), nome: 'Bife de Ancho', sku: 'ESP-BIF-ANC-001', unidade: 'kg', custoUnitario: 47.00, estoqueAtual: 6, estoqueMinimo: 2, categoria: 'Cortes Especiais', ativo: true }
     ];
     localStorage.setItem('kit-churras-itens', JSON.stringify(itensMock));
 
     const kitsMock: Kit[] = [
       {
         id: generateId(),
-        nome: 'Kit Churrasco Família',
-        codigo: 'KIT-FAM-001',
-        preco: 120.00,
-        descricao: 'Kit completo para família de 4 pessoas',
+        nome: 'Kit Abraãozinho',
+        codigo: 'KIT-ABR-001',
+        preco: 190.00,
+        descricao: 'Serve 7 pessoas. Perfeito para reunir a família e amigos!',
         itens: [
-          { itemId: itensMock[0].id, quantidade: 1 },
-          { itemId: itensMock[1].id, quantidade: 0.5 },
-          { itemId: itensMock[2].id, quantidade: 1 },
-          { itemId: itensMock[3].id, quantidade: 4 }
+          { itemId: itensMock[0].id, quantidade: 1 }, // Contra Filé Grill
+          { itemId: itensMock[1].id, quantidade: 1 }, // Drumet na Mostarda
+          { itemId: itensMock[2].id, quantidade: 1 }, // Linguiça Toscana
+          { itemId: itensMock[3].id, quantidade: 1 }, // Picanha Suína
+          { itemId: itensMock[4].id, quantidade: 1 }, // Pão de Alho
+          { itemId: itensMock[5].id, quantidade: 1 }, // Sal Grosso
+          { itemId: itensMock[6].id, quantidade: 1 }, // Farofa
+          { itemId: itensMock[7].id, quantidade: 1 }, // Carvão
+          { itemId: itensMock[8].id, quantidade: 1 }  // Acendedor
+        ],
+        ativo: true
+      },
+      {
+        id: generateId(),
+        nome: 'Kit Lopes Mendes',
+        codigo: 'KIT-LOP-001',
+        preco: 255.00,
+        descricao: 'Serve 12 pessoas. Ideal para festas e churrascos grandes!',
+        itens: [
+          { itemId: itensMock[0].id, quantidade: 2 }, // Contra Filé Grill
+          { itemId: itensMock[1].id, quantidade: 2 }, // Drumet na Mostarda
+          { itemId: itensMock[2].id, quantidade: 2 }, // Linguiça Toscana
+          { itemId: itensMock[3].id, quantidade: 1 }, // Picanha Suína
+          { itemId: itensMock[4].id, quantidade: 1 }, // Pão de Alho
+          { itemId: itensMock[5].id, quantidade: 2 }, // Sal Grosso
+          { itemId: itensMock[6].id, quantidade: 1 }, // Farofa
+          { itemId: itensMock[7].id, quantidade: 1 }, // Carvão
+          { itemId: itensMock[8].id, quantidade: 1 }  // Acendedor
         ],
         ativo: true
       }

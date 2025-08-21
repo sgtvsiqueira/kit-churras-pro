@@ -6,7 +6,9 @@ import {
   Package, 
   AlertTriangle, 
   Plus,
-  PackagePlus 
+  PackagePlus,
+  Store,
+  ExternalLink
 } from "lucide-react";
 
 import { usePedidosStore } from "@/stores/usePedidosStore";
@@ -83,6 +85,46 @@ export default function Dashboard() {
           </Button>
         </div>
       </div>
+
+      {/* Card de Destaque da Loja */}
+      <Card className="relative overflow-hidden border-primary/20 bg-gradient-to-r from-primary/5 to-orange-500/5">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
+        <CardHeader className="relative">
+          <div className="flex items-center justify-between">
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <Store className="h-6 w-6 text-primary" />
+                <CardTitle className="text-xl text-primary">Loja Online</CardTitle>
+              </div>
+              <CardDescription className="text-base">
+                Sua loja de kits de churrasco está pronta! Clientes podem fazer pedidos diretamente.
+              </CardDescription>
+            </div>
+            <Button asChild className="bg-primary hover:bg-primary/90">
+              <a href="/loja" target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="h-4 w-4 mr-2" />
+                Abrir Loja
+              </a>
+            </Button>
+          </div>
+        </CardHeader>
+        <CardContent className="relative pt-0">
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <span className="font-medium text-primary">✓</span> Kit Abraãozinho (7 pessoas)
+            </div>
+            <div>
+              <span className="font-medium text-primary">✓</span> Kit Lopes Mendes (12 pessoas)
+            </div>
+            <div>
+              <span className="font-medium text-primary">✓</span> Sistema de trocas de itens
+            </div>
+            <div>
+              <span className="font-medium text-primary">✓</span> Itens extras disponíveis
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Metrics Cards */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">

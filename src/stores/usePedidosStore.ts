@@ -24,7 +24,7 @@ interface PedidosState {
   
   // Actions - Clientes
   loadClientes: () => Promise<void>;
-  createCliente: (cliente: Omit<Cliente, 'id'>) => Promise<void>;
+  createCliente: (cliente: Omit<Cliente, 'id'>) => Promise<Cliente>;
   updateCliente: (id: string, cliente: Partial<Cliente>) => Promise<void>;
   deleteCliente: (id: string) => Promise<void>;
   
@@ -106,6 +106,7 @@ export const usePedidosStore = create<PedidosState>()((set, get) => ({
   createCliente: async (cliente) => {
     const novoCliente = await api.createCliente(cliente);
     set((state) => ({ clientes: [...state.clientes, novoCliente] }));
+    return novoCliente;
   },
 
   updateCliente: async (id, cliente) => {

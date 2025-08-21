@@ -6,7 +6,8 @@ import {
   Users, 
   Settings,
   Plus,
-  PackagePlus
+  PackagePlus,
+  Store
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -130,6 +131,26 @@ export function AppSidebar() {
 
         {!collapsed && (
           <>
+            <Separator className="mx-4" />
+            
+            {/* Botão especial para a Loja */}
+            <SidebarGroup>
+              <SidebarGroupContent>
+                <div className="px-4">
+                  <Button
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                    size="sm"
+                    asChild
+                  >
+                    <a href="/loja" target="_blank" rel="noopener noreferrer">
+                      <Store className="h-4 w-4 mr-2" />
+                      Abrir Loja
+                    </a>
+                  </Button>
+                </div>
+              </SidebarGroupContent>
+            </SidebarGroup>
+
             <Separator className="mx-4" />
             
             <SidebarGroup>
