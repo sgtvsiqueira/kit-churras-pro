@@ -110,3 +110,4 @@ Para deploy em produção:
 ## 📞 Suporte
 
 Para dúvidas ou sugestões sobre o projeto, utilize os recursos do Lovable ou contribua diretamente no código.
+# Teste workflow Docker
