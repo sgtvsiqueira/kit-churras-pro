@@ -14,7 +14,7 @@ import { useToast } from '@/hooks/use-toast';
 import { PedidoItem, Cliente } from '@/domain/types';
 
 interface CheckoutFormProps {
-  cart: any[];
+  cart: { id: string; nome: string; preco: number; quantidade: number }[];
   onBack: () => void;
 }
 
@@ -302,7 +302,7 @@ export function CheckoutForm({ cart, onBack }: CheckoutFormProps) {
                     {/* Trocas */}
                     {item.customizations.trocas.length > 0 && (
                       <div className="text-xs text-blue-600 pl-4">
-                        {item.customizations.trocas.map((troca: any, i: number) => (
+                        {item.customizations.trocas.map((troca: { itemOriginal: string; itemNovo: string }, i: number) => (
                           <div key={i}>• {troca.itemOriginal} → {troca.itemNovo}</div>
                         ))}
                       </div>
@@ -311,7 +311,7 @@ export function CheckoutForm({ cart, onBack }: CheckoutFormProps) {
                     {/* Extras */}
                     {item.customizations.extras.length > 0 && (
                       <div className="text-xs text-green-600 pl-4">
-                        {item.customizations.extras.map((extra: any, i: number) => (
+                        {item.customizations.extras.map((extra: { quantidade: number }, i: number) => (
                           <div key={i}>• Extra: Item (x{extra.quantidade})</div>
                         ))}
                       </div>

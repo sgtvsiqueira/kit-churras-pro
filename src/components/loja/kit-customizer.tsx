@@ -12,7 +12,7 @@ import { Kit, ItemEstoque } from '@/domain/types';
 
 interface KitCustomizerProps {
   kit: Kit;
-  onAddToCart: (cartItem: any) => void;
+  onAddToCart: (cartItem: { id: string; nome: string; preco: number; quantidade: number }) => void;
   onClose: () => void;
 }
 
@@ -79,7 +79,7 @@ export function KitCustomizer({ kit, onAddToCart, onClose }: KitCustomizerProps)
   };
 
   const calcularPrecoFinal = () => {
-    let precoBase = kit.preco;
+    const precoBase = kit.preco;
     
     // Aplicar diferenças das trocas
     const diferencaTrocas = trocas.reduce((sum, troca) => sum + troca.diferenca, 0);
